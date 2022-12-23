@@ -67,10 +67,11 @@ current_prompt = 0
     button[1] = irandom(5)
     button[2] = irandom(5)
     button[3] = irandom(5)
-      with (Bubble) { target_size += 60
-image_angle ++
-Default_char.image_index = 2
-offset_x = 2.75;
+      with (Bubble) { 
+        target_size += 60
+        image_angle ++
+        Default_char.image_index = 2
+        offset_x = 2.75;
       }
     }
   }
@@ -104,7 +105,7 @@ draw_sprite_ext(input_prompts,button[3],x + 384,y - 32,0.5,0.5,0,c_white,1)
 
 for (var i = 0; i &lt; current_prompt; i++) {
     draw_sprite_ext(input_success ,0 ,x + (i*128),y - 48,0.5,0.5,0,c_white,1)
-  }
+}
 </string>
           </argument>
         </arguments>
