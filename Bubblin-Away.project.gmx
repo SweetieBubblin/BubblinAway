@@ -6,31 +6,43 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_bubble</sprite>
-    <sprite>sprites\spr_char_default</sprite>
-    <sprite>sprites\spr_input_prompts</sprite>
-    <sprite>sprites\spr_input_success</sprite>
-    <sprite>sprites\spr_default_floortile_surface</sprite>
-    <sprite>sprites\spr_default_floortile_belowsurface</sprite>
-    <sprite>sprites\spr_timegauge</sprite>
+    <sprites name="BubbleSprite">
+      <sprite>sprites\bubble_spr</sprite>
+      <sprite>sprites\pop_spr</sprite>
+    </sprites>
+    <sprites name="CharacterSprites">
+      <sprite>sprites\Char_default</sprite>
+      <sprite>sprites\Char_blowing</sprite>
+      <sprite>sprites\Char_popped</sprite>
+    </sprites>
+    <sprites name="GameplaySprites">
+      <sprite>sprites\input_success</sprite>
+      <sprite>sprites\spr_timegauge</sprite>
+      <sprite>sprites\input_prompts</sprite>
+      <sprite>sprites\spr_timegauge_fill</sprite>
+    </sprites>
+    <sprites name="FloorSprites">
+      <sprite>sprites\default_floortile_surface</sprite>
+      <sprite>sprites\default_floortile_belowsurface</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_default</background>
+    <background>background\default_bg</background>
   </backgrounds>
   <paths name="paths"/>
   <fonts name="fonts">
     <font>fonts\font_pressstart2P</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_bubble</object>
-    <object>objects\obj_default_char</object>
-    <object>objects\obj_input_manager</object>
-    <object>objects\obj_score_display</object>
-    <object>objects\obj_default_floortile1</object>
-    <object>objects\obj_default_floortile2</object>
+    <object>objects\Bubble</object>
+    <object>objects\Default_char</object>
+    <object>objects\Input_manager</object>
+    <object>objects\Score_display</object>
+    <object>objects\default_floortile1</object>
+    <object>objects\default_floortile2</object>
     <object>objects\obj_timegauge</object>
-    <object>objects\obj_timer_numerical</object>
-    <object>objects\obj_delta_manager</object>
+    <object>objects\obj_timegauge_fill</object>
+    <object>objects\default_timer</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\game</room>
