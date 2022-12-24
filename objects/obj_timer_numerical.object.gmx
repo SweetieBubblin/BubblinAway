@@ -48,12 +48,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if myTime &gt; 0 {
+            <string>if myTime &gt; 0
+    {
     myTime=myTime-delta_time/1000000
-}
-else {
+    }
+else
+    {
     myTime = 0
-}
+    }
 </string>
           </argument>
         </arguments>
