@@ -136,6 +136,8 @@ if keyboard_check_pressed(input[0]) xor keyboard_check_pressed(input[1]) xor key
             obj_default_char.image_index = 2
             offset_x = 2.75;
         }
+    }  else {
+        current_prompt = 0
     }
 }
 </string>
