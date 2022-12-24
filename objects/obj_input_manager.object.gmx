@@ -77,6 +77,8 @@ if (combo_timer &lt;= -1) {
     combo_timer = -1
 }
 
+show_debug_message(combo_timer)
+
 // If any of the input keys are pressed...
 if keyboard_check_pressed(input[0]) xor keyboard_check_pressed(input[1]) xor keyboard_check_pressed(input[2]) xor keyboard_check_pressed(input[3]) xor keyboard_check_pressed(input[4]) xor keyboard_check_pressed(input[5]) {
     // And if the pressed key matches the current prompt...
@@ -105,12 +107,6 @@ if keyboard_check_pressed(input[0]) xor keyboard_check_pressed(input[1]) xor key
             button[2] = irandom(5)
             button[3] = irandom(5)
             
-            // Increment size of bubble
-            with (obj_bubble) { 
-                target_size += (60 * global.delta_factor)
-                obj_score_display.score_val += 100
-            }
-            
             // Add to score
             score_toAdd += 100
             
@@ -123,6 +119,18 @@ if keyboard_check_pressed(input[0]) xor keyboard_check_pressed(input[1]) xor key
             if (obj_timegauge_fill.timer &lt;= 3.0) {
                 score_toAdd += 100
             }
+            
+            // Increment size of bubble
+            with (obj_bubble) { 
+                target_size += (60 * global.delta_factor)
+            }
+            
+            // Increment score
+            obj_score_display.score_val += score_toAdd
+            
+            // Reset values
+            score_toAdd = 0
+            combo_timer = 2.0
             
             // Increment timer up by increment amount
             if (obj_timegauge_fill.timer + obj_timegauge_fill.time_increment &gt;= 20.0) {
