@@ -31,6 +31,7 @@
     <object>objects\obj_bubble</object>
     <object>objects\obj_default_char</object>
     <object>objects\obj_input_manager</object>
+    <object>objects\obj_timer_numerical</object>
     <object>objects\obj_score_display</object>
     <object>objects\obj_default_floortile1</object>
     <object>objects\obj_default_floortile2</object>
