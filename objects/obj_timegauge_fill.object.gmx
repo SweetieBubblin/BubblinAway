@@ -32,6 +32,7 @@ total_time = 20.0
 timer = total_time
 time_increment = 10.0
 timer_difficulty_value = 0.0
+isDone = false
 </string>
           </argument>
         </arguments>
@@ -68,6 +69,22 @@ if (timer &lt; 0)
 {
     timer = 0
     x = 568
+    
+    if (!isDone) {
+        obj_default_char.image_alpha = 0
+        obj_bubble.image_alpha = 0
+        obj_popped_char.image_alpha = 1
+        
+        if (obj_bubble.size &lt;= 200) {
+            obj_popped_char.image_index = 0
+        } else if (obj_bubble.size &gt;= 200 and obj_bubble.size &lt;= 500) {
+            obj_popped_char.image_index = 1
+        } else if (obj_bubble.size &gt;= 500) {
+            obj_popped_char.image_index = 2
+        }
+        
+        isDone = true
+    }
 }
 </string>
           </argument>
