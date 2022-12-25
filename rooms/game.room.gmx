@@ -3,8 +3,8 @@
   <caption></caption>
   <width>1600</width>
   <height>900</height>
-  <vsnap>8</vsnap>
-  <hsnap>8</hsnap>
+  <vsnap>1</vsnap>
+  <hsnap>1</hsnap>
   <isometric>0</isometric>
   <speed>120</speed>
   <persistent>0</persistent>
@@ -94,6 +94,8 @@
     <instance objName="obj_delta_manager" x="56" y="40" name="inst_4AFEFABF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_timegauge_fill" x="560" y="776" name="inst_AE184DAF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_timer_numerical" x="72" y="40" name="inst_5628D9F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_popped_char" x="43" y="824" name="inst_EEE2E054" locked="0" code="" scaleX="0.129999995231628" scaleY="0.129999995231628" colour="4294967295" rotation="0"/>
+    <instance objName="obj_popped_char" x="29" y="926" name="inst_5C925749" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="" x="192" y="288" w="16" h="16" xo="0" yo="0" id="10000002" name="inst_40708F13" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

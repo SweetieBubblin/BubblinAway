@@ -25,18 +25,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>input[0] = vk_up
+            <string>// The inputs used
+input[0] = vk_up
 input[1] = vk_down
 input[2] = vk_left
 input[3] = vk_right
 input[4] = ord("Z")
 input[5] = ord("X")
+
+// Start generating random index values to use for combo
 button[0] = irandom(5)
 button[1] = irandom(5)
 button[2] = irandom(5)
 button[3] = irandom(5)
+
+// Initialize current prompt
 current_prompt = 0
+
+// Score total
 score_toAdd = 0
+
+// Time for combo elapsed time
+combo_timer = 2.0
 </string>
           </argument>
         </arguments>
@@ -59,27 +69,86 @@ score_toAdd = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if keyboard_check_pressed(input[0]) xor keyboard_check_pressed(input[1]) xor keyboard_check_pressed(input[2]) xor keyboard_check_pressed(input[3]) xor keyboard_check_pressed(input[4]) xor keyboard_check_pressed(input[5]) {
-  if keyboard_check_pressed(input[button[current_prompt]]) {
-    current_prompt ++
-    if current_prompt &gt; 3 {
-    current_prompt = 0
-    button[0] = irandom(5)
-    button[1] = irandom(5)
-    button[2] = irandom(5)
-    button[3] = irandom(5)
-      with (obj_bubble) 
-       { 
-        target_size += (60 * global.delta_factor)
-        obj_score_display.score_val += 100
+            <string>// Decrement combo time
+combo_timer -= delta_time/1000000
+obj_timer_numerical.myTime = obj_timegauge_fill.timer
+
+// Make sure that we keep the combo timer from counting down past -1 (for a check for later)
+if (combo_timer &lt;= -1) {
+    combo_timer = -1
+}
+
+// If any of the input keys are pressed...
+if keyboard_check_pressed(input[0]) xor keyboard_check_pressed(input[1]) xor keyboard_check_pressed(input[2]) xor keyboard_check_pressed(input[3]) xor keyboard_check_pressed(input[4]) xor keyboard_check_pressed(input[5]) {
+    // And if the pressed key matches the current prompt...
+    if keyboard_check_pressed(input[button[current_prompt]]) {
+        // Go to the next prompt
+        current_prompt ++
+        
+        show_debug_message(obj_bubble.size)
+        
+        // And if the next prompt is the finished area...
+        if current_prompt &gt; 3 {
+            // Restart back to the first key prompt
+            current_prompt = 0
+            
+            // Adjust time interval to be decrementing up until 5 seconds
+            if (obj_timegauge_fill.time_increment &gt;= 5.0) {
+                obj_timegauge_fill.time_increment -= 0.5
+            }
+            
+            // Adjust the difficulty measure to make time go by faster
+            if (obj_timegauge_fill.timer_difficulty_value &lt;= 1.0) {
+                obj_timegauge_fill.timer_difficulty_value += 0.002
+            }
+            
+            // Generate new random key configurations
+            button[0] = irandom(5)
+            button[1] = irandom(5)
+            button[2] = irandom(5)
+            button[3] = irandom(5)
+            
+            // Add to score
+            score_toAdd += 100
+            
+            // Increment score more if combo timer isn't at a negative
+            if (combo_timer &gt;= 0) {
+                score_toAdd += 100
+            }
+            
+            // Increment score more if combo was done at last second
+            if (obj_timegauge_fill.timer &lt;= 3.0) {
+                score_toAdd += 100
+            }
+            
+            // Increment size of bubble
+            with (obj_bubble) { 
+                target_size += (60 * global.delta_factor)
+            }
+            
+            // Increment score
+            obj_score_display.score_val += score_toAdd
+            
+            // Reset values
+            score_toAdd = 0
+            combo_timer = 2.0
+            
+            // Increment timer up by increment amount
+            if (obj_timegauge_fill.timer + obj_timegauge_fill.time_increment &gt;= 20.0) {
+                obj_timegauge_fill.timer = 20.0
+            } else {
+                obj_timegauge_fill.timer += obj_timegauge_fill.time_increment
+            }
+            
+            // Adjust character's sprite
+            image_angle += (1 * global.delta_factor)
+            obj_default_char.image_index = 2
+            offset_x = 2.75;
         }
-        score_toAdd += 100
-image_angle += (1 * global.delta_factor)
-obj_default_char.image_index = 2
-offset_x = 2.75;
-      }
+    }  else {
+        current_prompt = 0
     }
-  }
+}
 </string>
           </argument>
         </arguments>

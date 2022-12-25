@@ -19,6 +19,7 @@
       <sprite>sprites\spr_timegauge</sprite>
       <sprite>sprites\spr_timegauge_fill</sprite>
     </sprites>
+    <sprite>sprites\spr_char_popped</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_default</background>
@@ -38,6 +39,7 @@
     <object>objects\obj_timegauge</object>
     <object>objects\obj_delta_manager</object>
     <object>objects\obj_timegauge_fill</object>
+    <object>objects\obj_popped_char</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\game</room>
