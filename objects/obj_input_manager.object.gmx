@@ -33,6 +33,14 @@ input[3] = vk_right
 input[4] = ord("Z")
 input[5] = ord("X")
 
+// Generate Unix seed
+datetime = date_current_datetime();
+var epoch = floor(date_create_datetime(1970, 1, 1, 0, 0, 0));
+unix_time = floor(date_second_span(epoch, datetime));
+
+// Set seed
+random_set_seed(unix_time)
+
 // Start generating random index values to use for combo
 button[0] = irandom(5)
 button[1] = irandom(5)
@@ -113,12 +121,12 @@ if keyboard_check_pressed(input[0]) xor keyboard_check_pressed(input[1]) xor key
             
             // Increment score more if combo timer isn't at a negative
             if (combo_timer &gt;= 0) {
-                score_toAdd += 100
+                score_toAdd += 200
             }
             
             // Increment score more if combo was done at last second
             if (obj_timegauge_fill.timer &lt;= 3.0) {
-                score_toAdd += 100
+                score_toAdd += 500
             }
             
             // Increment size of bubble
