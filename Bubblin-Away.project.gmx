@@ -12,8 +12,11 @@
     <sprite>sprites\spr_default_floortile_surface</sprite>
     <sprite>sprites\spr_default_floortile_belowsurface</sprite>
     <sprites name="BubbleSprite">
-      <sprite>sprites\spr_bubble</sprite>
       <sprite>sprites\spr_bubblepop</sprite>
+      <sprite>sprites\spr_bubble_base</sprite>
+      <sprite>sprites\spr_highlight_1</sprite>
+      <sprite>sprites\spr_highlight_2</sprite>
+      <sprite>sprites\spr_mouth_attatchment</sprite>
     </sprites>
     <sprites name="GameplaySprites">
       <sprite>sprites\spr_timegauge</sprite>
@@ -29,7 +32,6 @@
     <font>fonts\font_pressstart2P</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_bubble</object>
     <object>objects\obj_default_char</object>
     <object>objects\obj_input_manager</object>
     <object>objects\obj_timer_numerical</object>
@@ -40,6 +42,9 @@
     <object>objects\obj_delta_manager</object>
     <object>objects\obj_timegauge_fill</object>
     <object>objects\obj_popped_char</object>
+    <object>objects\obj_bubble</object>
+    <object>objects\obj_highlight</object>
+    <object>objects\obj_mouth_attatchment</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\game</room>

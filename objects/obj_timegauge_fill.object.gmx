@@ -68,11 +68,14 @@ if ((timer / total_time) &lt; 0.2) {
 if (timer &lt; 0)
 {
     timer = 0
+    obj_input_manager.game_running = false
     x = 568
     
     if (!isDone) {
         obj_default_char.image_alpha = 0
         obj_bubble.image_alpha = 0
+        obj_highlight.image_alpha = 0
+        obj_mouth_attatchment.image_alpha = 0
         obj_popped_char.image_alpha = 1
         
         if (obj_bubble.size &lt;= 200) {
