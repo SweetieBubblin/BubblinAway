@@ -33,6 +33,14 @@ input[3] = vk_right
 input[4] = ord("Z")
 input[5] = ord("X")
 
+// Generate Unix seed
+datetime = date_current_datetime();
+var epoch = floor(date_create_datetime(1970, 1, 1, 0, 0, 0));
+unix_time = floor(date_second_span(epoch, datetime));
+
+// Set seed
+random_set_seed(unix_time)
+
 // Start generating random index values to use for combo
 button[0] = irandom(5)
 button[1] = irandom(5)
@@ -47,6 +55,9 @@ score_toAdd = 0
 
 // Time for combo elapsed time
 combo_timer = 2.0
+
+// If the game is running or not
+game_running = true
 </string>
           </argument>
         </arguments>
@@ -79,13 +90,11 @@ if (combo_timer &lt;= -1) {
 }
 
 // If any of the input keys are pressed...
-if keyboard_check_pressed(input[0]) xor keyboard_check_pressed(input[1]) xor keyboard_check_pressed(input[2]) xor keyboard_check_pressed(input[3]) xor keyboard_check_pressed(input[4]) xor keyboard_check_pressed(input[5]) {
+if game_running and keyboard_check_pressed(input[0]) xor keyboard_check_pressed(input[1]) xor keyboard_check_pressed(input[2]) xor keyboard_check_pressed(input[3]) xor keyboard_check_pressed(input[4]) xor keyboard_check_pressed(input[5]) {
     // And if the pressed key matches the current prompt...
     if keyboard_check_pressed(input[button[current_prompt]]) {
         // Go to the next prompt
         current_prompt ++
-        
-        show_debug_message(obj_bubble.size)
         
         // And if the next prompt is the finished area...
         if current_prompt &gt; 3 {
@@ -113,16 +122,26 @@ if keyboard_check_pressed(input[0]) xor keyboard_check_pressed(input[1]) xor key
             
             // Increment score more if combo timer isn't at a negative
             if (combo_timer &gt;= 0) {
-                score_toAdd += 100
+                score_toAdd += 200
             }
             
             // Increment score more if combo was done at last second
             if (obj_timegauge_fill.timer &lt;= 3.0) {
-                score_toAdd += 100
+                score_toAdd += 500
             }
             
             // Increment size of bubble
             with (obj_bubble) { 
+                target_size += (60 * global.delta_factor)
+            }
+            
+            // Highlight
+            with (obj_highlight) {
+                target_size += (60 * global.delta_factor)
+            }
+            
+            // And mouth attatchment
+            with (obj_mouth_attatchment) {
                 target_size += (60 * global.delta_factor)
             }
             

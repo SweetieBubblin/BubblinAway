@@ -51,7 +51,9 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_bubble" x="96" y="840" name="inst_E26DCBAA" locked="0" code="" scaleX="0.0963855385780334" scaleY="0.101851850748062" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bubble" x="91" y="772" name="inst_27247F67" locked="0" code="" scaleX="0.100000001490116" scaleY="0.100000001490116" colour="4294967295" rotation="0"/>
+    <instance objName="obj_highlight" x="91" y="772" name="inst_ECF14235" locked="0" code="" scaleX="0.100000001490116" scaleY="0.100000001490116" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mouth_attatchment" x="103" y="771" name="inst_E0ED12C5" locked="0" code="" scaleX="0.100000001490116" scaleY="0.100000001490116" colour="4294967295" rotation="0"/>
     <instance objName="obj_default_char" x="72" y="844" name="inst_B579FB76" locked="0" code="" scaleX="0.125" scaleY="0.125" colour="4294967295" rotation="0"/>
     <instance objName="obj_input_manager" x="40" y="784" name="inst_BA07B13B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_score_display" x="40" y="40" name="inst_1EB0085E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -95,7 +97,6 @@
     <instance objName="obj_timegauge_fill" x="560" y="776" name="inst_AE184DAF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_timer_numerical" x="72" y="40" name="inst_5628D9F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_popped_char" x="43" y="824" name="inst_EEE2E054" locked="0" code="" scaleX="0.129999995231628" scaleY="0.129999995231628" colour="4294967295" rotation="0"/>
-    <instance objName="obj_popped_char" x="29" y="926" name="inst_5C925749" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="" x="192" y="288" w="16" h="16" xo="0" yo="0" id="10000002" name="inst_40708F13" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
