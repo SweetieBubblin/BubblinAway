@@ -3,7 +3,7 @@
   <spriteName>spr_highlight_1</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,11 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>//event: create
-size = 150
+size = 20
 target_size = 10
 image_xscale = size/100000
 image_yscale = size/100000
-image_alpha = 1.0
+image_alpha = 0.90
 rotation_speed = 0
 offset_x = 0;
 offset_y = 0;
@@ -60,7 +60,7 @@ offset_y = 0;
 if size &lt; target_size {
   size += 0.5 * global.delta_factor
   if size &gt; (620) and image_angle &lt; 90 {
-    rotation_speed += 0.00042 * global.delta_factor
+    rotation_speed += 0.00082 * global.delta_factor
   if rotation_speed &gt;= 0.07
     rotation_speed = 0.07
   }
@@ -77,7 +77,7 @@ if size &lt; target_size {
     }
 }
 else if rotation_speed &gt; 0 {
-  rotation_speed -= 0.00245 * global.delta_factor
+  rotation_speed -= 0.0019 * global.delta_factor
   if rotation_speed &lt;= 0 {
     rotation_speed = 0
   }

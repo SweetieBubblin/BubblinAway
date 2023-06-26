@@ -84,6 +84,7 @@ game_running = true
 combo_timer -= delta_time/1000000
 obj_timer_numerical.myTime = obj_timegauge_fill.timer
 
+
 // Make sure that we keep the combo timer from counting down past -1 (for a check for later)
 if (combo_timer &lt;= -1) {
     combo_timer = -1
@@ -102,14 +103,16 @@ if game_running and keyboard_check_pressed(input[0]) xor keyboard_check_pressed(
             current_prompt = 0
             
             // Adjust time interval to be decrementing up until 5 seconds
-            if (obj_timegauge_fill.time_increment &gt;= 5.0) {
-                obj_timegauge_fill.time_increment -= 0.5
+            if (obj_timegauge_fill.time_increment &gt;= 2.0) {
+                obj_timegauge_fill.time_increment -= 1
             }
             
-            // Adjust the difficulty measure to make time go by faster
-            if (obj_timegauge_fill.timer_difficulty_value &lt;= 1.0) {
-                obj_timegauge_fill.timer_difficulty_value += 0.002
+            // Adjust the difficulty measure to decrease the maximum time
+            if obj_timegauge_fill.max_time &gt; 2.0 { 
+            obj_timegauge_fill.max_time -= 1
+                //Example edits to scale based on difficulty settings. if game_difficulty_variable = 1, set max time to 5 seconds. if = 2, set max time to 4 seconds, etc
             }
+            
             
             // Generate new random key configurations
             button[0] = irandom(5)
@@ -153,8 +156,8 @@ if game_running and keyboard_check_pressed(input[0]) xor keyboard_check_pressed(
             combo_timer = 2.0
             
             // Increment timer up by increment amount
-            if (obj_timegauge_fill.timer + obj_timegauge_fill.time_increment &gt;= 20.0) {
-                obj_timegauge_fill.timer = 20.0
+            if (obj_timegauge_fill.timer + obj_timegauge_fill.time_increment &gt;= obj_timegauge_fill.max_time) {
+                obj_timegauge_fill.timer = obj_timegauge_fill.max_time
             } else {
                 obj_timegauge_fill.timer += obj_timegauge_fill.time_increment
             }

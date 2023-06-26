@@ -84,16 +84,16 @@ draw_set_font(font_pressstart2P)
 if myTime &gt; 0
 {
 draw_set_color(c_black)
-draw_text_transformed(x+604,y+4,"Placeholder (Time Left)" + string(myTime), 0.5, 0.5, 0)
+draw_text_transformed(x+564,y+754,"Time Left " + string(myTime), 0.5, 0.5, 0)
 draw_set_color(c_white)
-draw_text_transformed(x+600,y,"Placeholder (Time Left)" + string(myTime), 0.5, 0.5, 0)
+draw_text_transformed(x+560,y+750,"Time Left " + string(myTime), 0.5, 0.5, 0)
 }
 if myTime &lt;= 0
 {
 draw_set_color(c_black)
-draw_text_transformed(x+604,y+4,"Time's up! (Not that it matters)", 0.5, 0.5, 0)
+draw_text_transformed(x+604,y+754,"Time's up!", 0.5, 0.5, 0)
 draw_set_color($3943fa)
-draw_text_transformed(x+600,y,"Time's up! (Not that it matters)", 0.5, 0.5, 0)
+draw_text_transformed(x+600,y+750,"Time's up!", 0.5, 0.5, 0)
 }
 </string>
           </argument>
